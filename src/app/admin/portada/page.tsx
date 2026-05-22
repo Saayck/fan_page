@@ -1,8 +1,8 @@
-import { getConfiguracion } from "@/lib/supabase/queries";
-import { createClient } from "@/lib/supabase/server";
-import type { ConfiguracionWeb } from "@/types/database";
-import AdminLayout from "@/components/admin/AdminLayout";
-import AdminHeader from "@/components/admin/AdminHeader";
+import { getConfiguracion } from "@/backend/lib/supabase/queries";
+import { createClient } from "@/backend/lib/supabase/server";
+import type { ConfiguracionWeb } from "@/backend/types/database";
+import AdminLayout from "@/frontend/components/admin/AdminLayout";
+import AdminHeader from "@/frontend/components/admin/AdminHeader";
 import PortadaForm from "./PortadaForm";
 
 export default async function AdminPortadaPage() {

@@ -1,4 +1,4 @@
-import { clsx } from "@/lib/utils";
+import { clsx } from "@/backend/lib/utils";
 
 interface BadgeProps {
   texto: string;

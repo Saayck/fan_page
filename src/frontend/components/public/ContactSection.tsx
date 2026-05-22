@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import type { ConfiguracionWeb } from "@/types/database";
-import Button from "@/components/ui/Button";
-import Input from "@/components/ui/Input";
-import Textarea from "@/components/ui/Textarea";
+import type { ConfiguracionWeb } from "@/backend/types/database";
+import Button from "@/frontend/components/ui/Button";
+import Input from "@/frontend/components/ui/Input";
+import Textarea from "@/frontend/components/ui/Textarea";
 
 interface ContactSectionProps {
   config: Partial<ConfiguracionWeb> | null;

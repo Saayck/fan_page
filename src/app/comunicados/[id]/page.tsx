@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getConfiguracion, getComunicadoPorSlug } from "@/lib/supabase/queries";
-import Navbar from "@/components/public/Navbar";
-import Footer from "@/components/public/Footer";
-import { formatearFecha } from "@/lib/utils";
+import { getConfiguracion, getComunicadoPorSlug } from "@/backend/lib/supabase/queries";
+import Navbar from "@/frontend/components/public/Navbar";
+import Footer from "@/frontend/components/public/Footer";
+import { formatearFecha } from "@/backend/lib/utils";
 
 export const revalidate = 60;
 

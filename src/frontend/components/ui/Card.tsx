@@ -1,5 +1,5 @@
 import { HTMLAttributes, ReactNode } from "react";
-import { clsx } from "@/lib/utils";
+import { clsx } from "@/backend/lib/utils";
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;

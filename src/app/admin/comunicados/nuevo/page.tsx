@@ -1,6 +1,6 @@
-import AdminLayout from "@/components/admin/AdminLayout";
-import AdminHeader from "@/components/admin/AdminHeader";
-import ComunicadoForm from "@/components/admin/ComunicadoForm";
+import AdminLayout from "@/frontend/components/admin/AdminLayout";
+import AdminHeader from "@/frontend/components/admin/AdminHeader";
+import ComunicadoForm from "@/frontend/components/admin/ComunicadoForm";
 
 export default function NuevoComunicadoPage() {
   return (

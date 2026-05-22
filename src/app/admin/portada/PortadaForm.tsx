@@ -4,13 +4,13 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
-import { portadaSchema, type PortadaFormData } from "@/lib/validations/infoSchema";
-import type { ConfiguracionWeb } from "@/types/database";
-import Input from "@/components/ui/Input";
-import Textarea from "@/components/ui/Textarea";
-import Button from "@/components/ui/Button";
-import ImageUploader from "@/components/admin/ImageUploader";
+import { createClient } from "@/backend/lib/supabase/client";
+import { portadaSchema, type PortadaFormData } from "@/backend/lib/validations/infoSchema";
+import type { ConfiguracionWeb } from "@/backend/types/database";
+import Input from "@/frontend/components/ui/Input";
+import Textarea from "@/frontend/components/ui/Textarea";
+import Button from "@/frontend/components/ui/Button";
+import ImageUploader from "@/frontend/components/admin/ImageUploader";
 
 interface PortadaFormProps {
   config: ConfiguracionWeb;
@@ -24,7 +24,7 @@ export default function PortadaForm({ config }: PortadaFormProps) {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isDirty },
+    formState: { errors, isSubmitting },
   } = useForm<PortadaFormData>({
     resolver: zodResolver(portadaSchema),
     defaultValues: {

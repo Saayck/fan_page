@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { createClient } from "@/lib/supabase/client";
-import type { GaleriaItem } from "@/types/database";
-import Button from "@/components/ui/Button";
-import Input from "@/components/ui/Input";
-import Textarea from "@/components/ui/Textarea";
-import Card from "@/components/ui/Card";
-import ConfirmDeleteModal from "@/components/admin/ConfirmDeleteModal";
-import ImageUploader from "@/components/admin/ImageUploader";
+import { createClient } from "@/backend/lib/supabase/client";
+import type { GaleriaItem } from "@/backend/types/database";
+import Button from "@/frontend/components/ui/Button";
+import Input from "@/frontend/components/ui/Input";
+import Textarea from "@/frontend/components/ui/Textarea";
+import Card from "@/frontend/components/ui/Card";
+import ConfirmDeleteModal from "@/frontend/components/admin/ConfirmDeleteModal";
+import ImageUploader from "@/frontend/components/admin/ImageUploader";
 
 interface GaleriaManagerProps {
   galeriaInicial: GaleriaItem[];
@@ -45,7 +45,7 @@ export default function GaleriaManager({ galeriaInicial }: GaleriaManagerProps) 
         .select()
         .single();
       if (error) throw error;
-      setGaleria((prev) => [data, ...prev]);
+      setGaleria((prev) => [data as GaleriaItem, ...prev]);
       resetForm();
     } catch (err: unknown) {
       alert(err instanceof Error ? err.message : "Error al guardar");
@@ -120,12 +120,7 @@ export default function GaleriaManager({ galeriaInicial }: GaleriaManagerProps) 
           {galeria.map((item) => (
             <div key={item.id} className="group relative rounded-2xl overflow-hidden border border-gray-200 bg-gray-50">
               <div className="relative aspect-square">
-                <Image
-                  src={item.imagen_url}
-                  alt={item.titulo}
-                  fill
-                  className="object-cover"
-                />
+                <Image src={item.imagen_url} alt={item.titulo} fill className="object-cover" />
                 {item.destacado && (
                   <span className="absolute top-2 left-2 bg-institucional-dorado text-white text-xs px-2 py-0.5 rounded-full">
                     Destacada

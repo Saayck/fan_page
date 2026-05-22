@@ -3,9 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
-import Button from "@/components/ui/Button";
-import ConfirmDeleteModal from "@/components/admin/ConfirmDeleteModal";
+import { createClient } from "@/backend/lib/supabase/client";
+import Button from "@/frontend/components/ui/Button";
+import ConfirmDeleteModal from "@/frontend/components/admin/ConfirmDeleteModal";
 
 interface ComunicadoActionsProps {
   comunicadoId: string;
@@ -65,7 +65,7 @@ export default function ComunicadoActions({ comunicadoId, slug }: ComunicadoActi
       {mostrarConfirm && (
         <ConfirmDeleteModal
           titulo="¿Eliminar comunicado?"
-          descripcion="Esta acción eliminará el comunicado permanentemente y no se puede deshacer."
+          descripcion="Esta acción eliminará el comunicado permanentemente."
           onConfirmar={handleDelete}
           onCancelar={() => setMostrarConfirm(false)}
           cargando={eliminando}

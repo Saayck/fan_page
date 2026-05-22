@@ -1,5 +1,5 @@
 import { createClient } from "./server";
-import type { Comunicado, GaleriaItem, ConfiguracionWeb } from "@/types/database";
+import type { Comunicado, GaleriaItem, ConfiguracionWeb } from "@/backend/types/database";
 
 export async function getConfiguracion(): Promise<ConfiguracionWeb | null> {
   const supabase = await createClient();

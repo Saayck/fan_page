@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { getConteos, getComunicados } from "@/lib/supabase/queries";
-import AdminLayout from "@/components/admin/AdminLayout";
-import AdminHeader from "@/components/admin/AdminHeader";
-import Card from "@/components/ui/Card";
-import Badge from "@/components/ui/Badge";
-import { formatearFechaCorta } from "@/lib/utils";
+import { getConteos, getComunicados } from "@/backend/lib/supabase/queries";
+import AdminLayout from "@/frontend/components/admin/AdminLayout";
+import AdminHeader from "@/frontend/components/admin/AdminHeader";
+import Card from "@/frontend/components/ui/Card";
+import Badge from "@/frontend/components/ui/Badge";
+import { formatearFechaCorta } from "@/backend/lib/utils";
 
 export default async function DashboardPage() {
   const [conteos, ultimosComunicados] = await Promise.all([

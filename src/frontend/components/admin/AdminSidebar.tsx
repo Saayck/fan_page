@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { clsx } from "@/lib/utils";
+import { clsx } from "@/backend/lib/utils";
 
 const menuItems = [
   {

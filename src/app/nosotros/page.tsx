@@ -1,6 +1,6 @@
-import { getConfiguracion } from "@/lib/supabase/queries";
-import Navbar from "@/components/public/Navbar";
-import Footer from "@/components/public/Footer";
+import { getConfiguracion } from "@/backend/lib/supabase/queries";
+import Navbar from "@/frontend/components/public/Navbar";
+import Footer from "@/frontend/components/public/Footer";
 
 export const revalidate = 60;
 
@@ -55,9 +55,7 @@ export default async function NosotrosPage() {
 
             {!config?.mision && !config?.vision && !config?.historia && (
               <div className="text-center py-16">
-                <p className="text-gray-400 text-lg">
-                  Información institucional próximamente disponible.
-                </p>
+                <p className="text-gray-400 text-lg">Información institucional próximamente disponible.</p>
               </div>
             )}
           </div>

@@ -1,12 +1,12 @@
-import { InputHTMLAttributes, forwardRef } from "react";
-import { clsx } from "@/lib/utils";
+import { TextareaHTMLAttributes, forwardRef } from "react";
+import { clsx } from "@/backend/lib/utils";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
   error?: string;
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ label, error, className, id, ...props }, ref) => {
     return (
       <div className="w-full">
@@ -15,11 +15,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {label}
           </label>
         )}
-        <input
+        <textarea
           ref={ref}
           id={id}
+          rows={4}
           className={clsx(
-            "input-field",
+            "input-field resize-y min-h-[100px]",
             error && "border-red-400 focus:ring-red-400",
             className
           )}
@@ -31,5 +32,5 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-Input.displayName = "Input";
-export default Input;
+Textarea.displayName = "Textarea";
+export default Textarea;

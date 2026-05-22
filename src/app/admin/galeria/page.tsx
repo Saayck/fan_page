@@ -1,6 +1,6 @@
-import { getGaleria } from "@/lib/supabase/queries";
-import AdminLayout from "@/components/admin/AdminLayout";
-import AdminHeader from "@/components/admin/AdminHeader";
+import { getGaleria } from "@/backend/lib/supabase/queries";
+import AdminLayout from "@/frontend/components/admin/AdminLayout";
+import AdminHeader from "@/frontend/components/admin/AdminHeader";
 import GaleriaManager from "./GaleriaManager";
 
 export default async function AdminGaleriaPage() {

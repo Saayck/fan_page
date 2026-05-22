@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { Comunicado } from "@/types/database";
-import { formatearFecha, truncarTexto } from "@/lib/utils";
-import Badge from "@/components/ui/Badge";
+import type { Comunicado } from "@/backend/types/database";
+import { formatearFecha, truncarTexto } from "@/backend/lib/utils";
+import Badge from "@/frontend/components/ui/Badge";
 
 interface ComunicadoCardProps {
   comunicado: Comunicado;

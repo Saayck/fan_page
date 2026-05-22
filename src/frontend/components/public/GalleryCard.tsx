@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { GaleriaItem } from "@/types/database";
+import type { GaleriaItem } from "@/backend/types/database";
 
 interface GalleryCardProps {
   item: GaleriaItem;

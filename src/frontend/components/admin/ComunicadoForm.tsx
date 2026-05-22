@@ -4,13 +4,13 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
-import { comunicadoSchema, type ComunicadoFormData } from "@/lib/validations/comunicadoSchema";
-import { generarSlug } from "@/lib/utils";
-import type { Comunicado } from "@/types/database";
-import Input from "@/components/ui/Input";
-import Textarea from "@/components/ui/Textarea";
-import Button from "@/components/ui/Button";
+import { createClient } from "@/backend/lib/supabase/client";
+import { comunicadoSchema, type ComunicadoFormData } from "@/backend/lib/validations/comunicadoSchema";
+import { generarSlug } from "@/backend/lib/utils";
+import type { Comunicado } from "@/backend/types/database";
+import Input from "@/frontend/components/ui/Input";
+import Textarea from "@/frontend/components/ui/Textarea";
+import Button from "@/frontend/components/ui/Button";
 import ImageUploader from "./ImageUploader";
 
 interface ComunicadoFormProps {
@@ -111,10 +111,7 @@ export default function ComunicadoForm({ comunicado }: ComunicadoFormProps) {
 
         <div>
           <label className="label">Estado *</label>
-          <select
-            className="input-field"
-            {...register("estado")}
-          >
+          <select className="input-field" {...register("estado")}>
             <option value="borrador">Borrador</option>
             <option value="publicado">Publicado</option>
           </select>

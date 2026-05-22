@@ -1,7 +1,7 @@
 "use client";
 
 import { ButtonHTMLAttributes, ReactNode } from "react";
-import { clsx } from "@/lib/utils";
+import { clsx } from "@/backend/lib/utils";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variante?: "primary" | "secondary" | "danger" | "ghost";

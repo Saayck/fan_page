@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { ConfiguracionWeb } from "@/types/database";
+import type { ConfiguracionWeb } from "@/backend/types/database";
 
 interface FooterProps {
   config: Partial<ConfiguracionWeb> | null;

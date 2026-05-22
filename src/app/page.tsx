@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { getConfiguracion, getComunicadosPublicados, getGaleriaDestacada } from "@/lib/supabase/queries";
-import Navbar from "@/components/public/Navbar";
-import Footer from "@/components/public/Footer";
-import Hero from "@/components/public/Hero";
-import ComunicadoCard from "@/components/public/ComunicadoCard";
-import GalleryCard from "@/components/public/GalleryCard";
+import { getConfiguracion, getComunicadosPublicados, getGaleriaDestacada } from "@/backend/lib/supabase/queries";
+import Navbar from "@/frontend/components/public/Navbar";
+import Footer from "@/frontend/components/public/Footer";
+import Hero from "@/frontend/components/public/Hero";
+import ComunicadoCard from "@/frontend/components/public/ComunicadoCard";
+import GalleryCard from "@/frontend/components/public/GalleryCard";
 
 export const revalidate = 60;
 
@@ -76,9 +76,7 @@ export default async function HomePage() {
 
         <section className="py-16 bg-institucional-azul text-white text-center">
           <div className="max-w-2xl mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-4">
-              Juntos por una educación de calidad
-            </h2>
+            <h2 className="text-3xl font-bold mb-4">Juntos por una educación de calidad</h2>
             <p className="text-blue-100 text-lg mb-8">
               El Colegio de Profesores de Ica trabaja incansablemente por los derechos del magisterio.
             </p>

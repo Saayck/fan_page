@@ -1,7 +1,7 @@
-import { getConfiguracion, getComunicadosPublicados } from "@/lib/supabase/queries";
-import Navbar from "@/components/public/Navbar";
-import Footer from "@/components/public/Footer";
-import ComunicadoCard from "@/components/public/ComunicadoCard";
+import { getConfiguracion, getComunicadosPublicados } from "@/backend/lib/supabase/queries";
+import Navbar from "@/frontend/components/public/Navbar";
+import Footer from "@/frontend/components/public/Footer";
+import ComunicadoCard from "@/frontend/components/public/ComunicadoCard";
 import ComunicadosBuscador from "./ComunicadosBuscador";
 
 export const revalidate = 60;
@@ -52,9 +52,6 @@ export default async function ComunicadosPage({
               </>
             ) : (
               <div className="text-center py-16">
-                <svg className="w-16 h-16 text-gray-200 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
                 <p className="text-gray-400 text-lg">
                   {q ? `No se encontraron comunicados para "${q}"` : "No hay comunicados disponibles."}
                 </p>

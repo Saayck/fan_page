@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { getComunicados } from "@/lib/supabase/queries";
-import AdminLayout from "@/components/admin/AdminLayout";
-import AdminHeader from "@/components/admin/AdminHeader";
-import Card from "@/components/ui/Card";
-import Badge from "@/components/ui/Badge";
-import Button from "@/components/ui/Button";
-import { formatearFechaCorta } from "@/lib/utils";
+import { getComunicados } from "@/backend/lib/supabase/queries";
+import AdminLayout from "@/frontend/components/admin/AdminLayout";
+import AdminHeader from "@/frontend/components/admin/AdminHeader";
+import Card from "@/frontend/components/ui/Card";
+import Badge from "@/frontend/components/ui/Badge";
+import Button from "@/frontend/components/ui/Button";
+import { formatearFechaCorta } from "@/backend/lib/utils";
 import ComunicadoActions from "./ComunicadoActions";
 
 export default async function AdminComunicadosPage() {

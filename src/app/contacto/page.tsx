@@ -1,7 +1,7 @@
-import { getConfiguracion } from "@/lib/supabase/queries";
-import Navbar from "@/components/public/Navbar";
-import Footer from "@/components/public/Footer";
-import ContactSection from "@/components/public/ContactSection";
+import { getConfiguracion } from "@/backend/lib/supabase/queries";
+import Navbar from "@/frontend/components/public/Navbar";
+import Footer from "@/frontend/components/public/Footer";
+import ContactSection from "@/frontend/components/public/ContactSection";
 
 export const revalidate = 60;
 

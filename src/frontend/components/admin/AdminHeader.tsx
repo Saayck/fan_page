@@ -1,8 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
-import Button from "@/components/ui/Button";
+import { createClient } from "@/backend/lib/supabase/client";
+import Button from "@/frontend/components/ui/Button";
 
 interface AdminHeaderProps {
   titulo: string;

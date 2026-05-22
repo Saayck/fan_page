@@ -3,12 +3,12 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
-import { infoSchema, type InfoFormData } from "@/lib/validations/infoSchema";
-import type { ConfiguracionWeb } from "@/types/database";
-import Input from "@/components/ui/Input";
-import Textarea from "@/components/ui/Textarea";
-import Button from "@/components/ui/Button";
+import { createClient } from "@/backend/lib/supabase/client";
+import { infoSchema, type InfoFormData } from "@/backend/lib/validations/infoSchema";
+import type { ConfiguracionWeb } from "@/backend/types/database";
+import Input from "@/frontend/components/ui/Input";
+import Textarea from "@/frontend/components/ui/Textarea";
+import Button from "@/frontend/components/ui/Button";
 
 interface InfoFormProps {
   config: ConfiguracionWeb;
