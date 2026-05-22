@@ -3,7 +3,8 @@ import type { Comunicado, GaleriaItem, ConfiguracionWeb } from "@/backend/types/
 
 export async function getConfiguracion(): Promise<ConfiguracionWeb | null> {
   const supabase = await createClient();
-  const { data } = await supabase.from("configuracion_web").select("*").limit(1).single();
+  const { data, error } = await supabase.from("configuracion_web").select("*").limit(1).single();
+  if (error) console.error("[getConfiguracion]", "code:", error.code, "message:", error.message, "details:", error.details);
   return (data as ConfiguracionWeb) ?? null;
 }
 
