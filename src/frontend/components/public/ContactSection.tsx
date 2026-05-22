@@ -10,16 +10,50 @@ interface ContactSectionProps {
   config: Partial<ConfiguracionWeb> | null;
 }
 
+interface FormData {
+  nombre: string;
+  correo: string;
+  asunto: string;
+  mensaje: string;
+}
+
+const initialForm: FormData = { nombre: "", correo: "", asunto: "", mensaje: "" };
+
 export default function ContactSection({ config }: ContactSectionProps) {
   const [enviado, setEnviado] = useState(false);
   const [enviando, setEnviando] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [form, setForm] = useState<FormData>(initialForm);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setEnviando(true);
-    await new Promise((r) => setTimeout(r, 800));
-    setEnviando(false);
-    setEnviado(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error ?? "Error al enviar el mensaje.");
+      } else {
+        setEnviado(true);
+        setForm(initialForm);
+      }
+    } catch {
+      setError("Error de conexión. Verifica tu internet e inténtalo de nuevo.");
+    } finally {
+      setEnviando(false);
+    }
   };
 
   return (
@@ -109,7 +143,7 @@ export default function ContactSection({ config }: ContactSectionProps) {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">¡Mensaje recibido!</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">¡Mensaje enviado!</h3>
                 <p className="text-gray-500">Nos pondremos en contacto contigo pronto.</p>
                 <button
                   onClick={() => setEnviado(false)}
@@ -123,10 +157,49 @@ export default function ContactSection({ config }: ContactSectionProps) {
                 <h3 className="text-lg font-semibold text-institucional-azul mb-4">
                   Envíanos un mensaje
                 </h3>
-                <Input label="Nombre completo" placeholder="Tu nombre" required />
-                <Input label="Correo electrónico" type="email" placeholder="tu@correo.com" required />
-                <Input label="Asunto" placeholder="¿En qué podemos ayudarte?" required />
-                <Textarea label="Mensaje" placeholder="Escribe tu mensaje aquí..." rows={4} required />
+
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3">
+                    {error}
+                  </div>
+                )}
+
+                <Input
+                  label="Nombre completo"
+                  name="nombre"
+                  placeholder="Tu nombre"
+                  value={form.nombre}
+                  onChange={handleChange}
+                  autoComplete="name"
+                  required
+                />
+                <Input
+                  label="Correo electrónico"
+                  name="correo"
+                  type="email"
+                  placeholder="tu@correo.com"
+                  value={form.correo}
+                  onChange={handleChange}
+                  autoComplete="email"
+                  required
+                />
+                <Input
+                  label="Asunto"
+                  name="asunto"
+                  placeholder="¿En qué podemos ayudarte?"
+                  value={form.asunto}
+                  onChange={handleChange}
+                  required
+                />
+                <Textarea
+                  label="Mensaje"
+                  name="mensaje"
+                  placeholder="Escribe tu mensaje aquí..."
+                  rows={4}
+                  value={form.mensaje}
+                  onChange={handleChange}
+                  required
+                />
                 <Button type="submit" cargando={enviando} tamano="lg" className="w-full">
                   Enviar mensaje
                 </Button>
