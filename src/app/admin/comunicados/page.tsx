@@ -27,45 +27,45 @@ export default async function AdminComunicadosPage() {
           </Link>
         }
       />
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         <Card padding={false}>
           {comunicados.length > 0 ? (
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-gray-100 bg-gray-50">
-                    <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider sm:px-6">
                       Título
                     </th>
-                    <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider hidden sm:table-cell">
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider hidden sm:table-cell sm:px-6">
                       Estado
                     </th>
-                    <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider hidden md:table-cell">
+                    <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider hidden md:table-cell sm:px-6">
                       Fecha
                     </th>
-                    <th className="px-6 py-3" />
+                    <th className="px-4 py-3 sm:px-6" />
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-50">
                   {comunicados.map((c) => (
                     <tr key={c.id} className="hover:bg-gray-50 transition-colors">
-                      <td className="px-6 py-4">
+                      <td className="px-4 py-4 sm:px-6">
                         <p className="font-medium text-gray-800 line-clamp-1">{c.titulo}</p>
                         <p className="text-xs text-gray-400 mt-0.5 sm:hidden">
                           {c.estado === "publicado" ? "✅ Publicado" : "⚪ Borrador"} ·{" "}
                           {formatearFechaCorta(c.created_at)}
                         </p>
                       </td>
-                      <td className="px-6 py-4 hidden sm:table-cell">
+                      <td className="px-4 py-4 hidden sm:table-cell sm:px-6">
                         <Badge
                           texto={c.estado === "publicado" ? "Publicado" : "Borrador"}
                           color={c.estado === "publicado" ? "verde" : "gris"}
                         />
                       </td>
-                      <td className="px-6 py-4 text-gray-400 hidden md:table-cell">
+                      <td className="px-4 py-4 text-gray-400 hidden md:table-cell sm:px-6">
                         {formatearFechaCorta(c.created_at)}
                       </td>
-                      <td className="px-6 py-4">
+                      <td className="px-4 py-4 sm:px-6">
                         <ComunicadoActions comunicadoId={c.id} slug={c.slug} />
                       </td>
                     </tr>

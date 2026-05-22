@@ -72,7 +72,7 @@ export default function GaleriaManager({ galeriaInicial }: GaleriaManagerProps) 
   return (
     <div className="space-y-6">
       <div className="flex justify-end">
-        <Button onClick={() => setMostrarForm(!mostrarForm)}>
+        <Button onClick={() => setMostrarForm(!mostrarForm)} className="w-full sm:w-auto">
           {mostrarForm ? "Cancelar" : "Subir imagen"}
         </Button>
       </div>
@@ -108,7 +108,7 @@ export default function GaleriaManager({ galeriaInicial }: GaleriaManagerProps) 
               />
               <span className="text-sm text-gray-700">Marcar como destacada</span>
             </label>
-            <Button onClick={handleGuardar} cargando={guardando}>
+            <Button onClick={handleGuardar} cargando={guardando} className="w-full sm:w-auto">
               Guardar imagen
             </Button>
           </div>
@@ -116,7 +116,7 @@ export default function GaleriaManager({ galeriaInicial }: GaleriaManagerProps) 
       )}
 
       {galeria.length > 0 ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
           {galeria.map((item) => (
             <div key={item.id} className="group relative rounded-2xl overflow-hidden border border-gray-200 bg-gray-50">
               <div className="relative aspect-square">

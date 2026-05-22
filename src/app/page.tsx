@@ -65,7 +65,7 @@ export default async function HomePage() {
                   Ver galería completa →
                 </Link>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 md:grid-cols-4">
                 {galeria.map((item) => (
                   <GalleryCard key={item.id} item={item} />
                 ))}

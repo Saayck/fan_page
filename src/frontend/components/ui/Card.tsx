@@ -9,7 +9,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 export default function Card({ children, padding = true, className, ...props }: CardProps) {
   return (
     <div
-      className={clsx("card", padding && "p-6", className)}
+      className={clsx("card", padding && "p-4 sm:p-6", className)}
       {...props}
     >
       {children}

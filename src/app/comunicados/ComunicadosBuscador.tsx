@@ -15,7 +15,7 @@ export default function ComunicadosBuscador({ valorInicial }: { valorInicial?: s
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-3 max-w-lg">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 max-w-lg sm:flex-row">
       <div className="flex-1 relative">
         <svg
           className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
@@ -46,7 +46,7 @@ export default function ComunicadosBuscador({ valorInicial }: { valorInicial?: s
             setBusqueda("");
             router.push("/comunicados");
           }}
-          className="text-gray-400 hover:text-gray-600 px-2"
+          className="text-gray-400 hover:text-gray-600 px-2 self-center sm:self-auto"
         >
           ✕
         </button>

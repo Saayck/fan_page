@@ -150,8 +150,8 @@ export default function ComunicadoForm({ comunicado }: ComunicadoFormProps) {
         onUpload={(url) => setValue("imagen_url", url)}
       />
 
-      <div className="flex gap-3 pt-4 border-t border-gray-100">
-        <Button type="submit" cargando={isSubmitting} tamano="lg">
+      <div className="flex flex-col gap-3 pt-4 border-t border-gray-100 sm:flex-row">
+        <Button type="submit" cargando={isSubmitting} tamano="lg" className="w-full sm:w-auto">
           {esEdicion ? "Guardar cambios" : "Crear comunicado"}
         </Button>
         <Button
@@ -159,6 +159,7 @@ export default function ComunicadoForm({ comunicado }: ComunicadoFormProps) {
           variante="secondary"
           tamano="lg"
           onClick={() => router.push("/admin/comunicados")}
+          className="w-full sm:w-auto"
         >
           Cancelar
         </Button>

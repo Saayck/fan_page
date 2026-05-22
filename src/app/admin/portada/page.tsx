@@ -22,7 +22,7 @@ export default async function AdminPortadaPage() {
     return (
       <AdminLayout>
         <AdminHeader titulo="Portada" />
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           <p className="text-red-500">Error al cargar la configuración.</p>
         </div>
       </AdminLayout>
@@ -32,7 +32,7 @@ export default async function AdminPortadaPage() {
   return (
     <AdminLayout>
       <AdminHeader titulo="Portada" descripcion="Personaliza la portada del sitio web" />
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         <PortadaForm config={config} />
       </div>
     </AdminLayout>

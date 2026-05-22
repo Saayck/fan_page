@@ -34,19 +34,19 @@ export default async function NosotrosPage() {
 
             <div className="grid md:grid-cols-3 gap-6">
               {config?.mision && (
-                <div className="card p-6 border-t-4 border-institucional-azul">
+                <div className="card p-4 border-t-4 border-institucional-azul sm:p-6">
                   <h3 className="text-lg font-bold text-institucional-azul mb-3">Misión</h3>
                   <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">{config.mision}</p>
                 </div>
               )}
               {config?.vision && (
-                <div className="card p-6 border-t-4 border-institucional-dorado">
+                <div className="card p-4 border-t-4 border-institucional-dorado sm:p-6">
                   <h3 className="text-lg font-bold text-institucional-azul mb-3">Visión</h3>
                   <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">{config.vision}</p>
                 </div>
               )}
               {config?.valores && (
-                <div className="card p-6 border-t-4 border-institucional-celeste">
+                <div className="card p-4 border-t-4 border-institucional-celeste sm:p-6">
                   <h3 className="text-lg font-bold text-institucional-azul mb-3">Valores</h3>
                   <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">{config.valores}</p>
                 </div>

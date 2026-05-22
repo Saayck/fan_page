@@ -21,15 +21,15 @@ export default function AdminHeader({ titulo, descripcion, accion }: AdminHeader
   };
 
   return (
-    <header className="bg-white border-b border-gray-200 px-6 py-4">
-      <div className="flex items-center justify-between">
-        <div>
+    <header className="bg-white border-b border-gray-200 px-4 py-4 sm:px-6">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="min-w-0">
           <h1 className="text-xl font-bold text-gray-900">{titulo}</h1>
           {descripcion && (
             <p className="text-sm text-gray-500 mt-0.5">{descripcion}</p>
           )}
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           {accion}
           <Button
             variante="ghost"

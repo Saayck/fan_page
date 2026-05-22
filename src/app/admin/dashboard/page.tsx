@@ -41,8 +41,8 @@ export default async function DashboardPage() {
   return (
     <AdminLayout>
       <AdminHeader titulo="Dashboard" descripcion="Panel de control general" />
-      <div className="p-6 space-y-8">
-        <div className="grid grid-cols-2 gap-4 max-w-md">
+      <div className="p-4 space-y-8 sm:p-6">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:max-w-md">
           {stats.map((s) => (
             <Link key={s.href} href={s.href}>
               <Card className={`hover:shadow-md transition-shadow cursor-pointer ${s.color}`}>
@@ -56,7 +56,7 @@ export default async function DashboardPage() {
 
         <div>
           <h2 className="text-lg font-semibold text-gray-800 mb-4">Accesos rápidos</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4">
             {accesosRapidos.map((a) => (
               <Link key={a.href} href={a.href}>
                 <div className="card p-4 hover:shadow-md transition-shadow cursor-pointer text-center group">
@@ -76,14 +76,14 @@ export default async function DashboardPage() {
             {recientes.length > 0 ? (
               <ul className="divide-y divide-gray-100">
                 {recientes.map((c) => (
-                  <li key={c.id} className="px-6 py-4 flex items-center justify-between gap-4">
+                  <li key={c.id} className="flex flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
                     <Link
                       href={`/admin/comunicados/editar/${c.id}`}
-                      className="text-sm font-medium text-gray-800 hover:text-institucional-azul transition-colors flex-1 truncate"
+                      className="text-sm font-medium text-gray-800 hover:text-institucional-azul transition-colors sm:flex-1 sm:truncate"
                     >
                       {c.titulo}
                     </Link>
-                    <div className="flex items-center gap-3 flex-shrink-0">
+                    <div className="flex flex-wrap items-center gap-3 sm:flex-shrink-0">
                       <Badge
                         texto={c.estado === "publicado" ? "Publicado" : "Borrador"}
                         color={c.estado === "publicado" ? "verde" : "gris"}

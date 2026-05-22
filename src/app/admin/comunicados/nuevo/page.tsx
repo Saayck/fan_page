@@ -9,7 +9,7 @@ export default function NuevoComunicadoPage() {
         titulo="Nuevo comunicado"
         descripcion="Crea un nuevo comunicado institucional"
       />
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         <ComunicadoForm />
       </div>
     </AdminLayout>

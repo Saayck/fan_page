@@ -54,7 +54,7 @@ export default function InfoForm({ config }: InfoFormProps) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-w-3xl">
-      <div className="card p-6 space-y-4">
+      <div className="card p-4 space-y-4 sm:p-6">
         <h3 className="font-semibold text-gray-800">Información General</h3>
         <Input
           label="Nombre de la institución *"
@@ -69,7 +69,7 @@ export default function InfoForm({ config }: InfoFormProps) {
         />
       </div>
 
-      <div className="card p-6 space-y-4">
+      <div className="card p-4 space-y-4 sm:p-6">
         <h3 className="font-semibold text-gray-800">Historia y Valores</h3>
         <Textarea label="Historia" rows={5} {...register("historia")} />
         <Textarea label="Misión" rows={4} {...register("mision")} />
@@ -77,7 +77,7 @@ export default function InfoForm({ config }: InfoFormProps) {
         <Textarea label="Valores" rows={4} {...register("valores")} />
       </div>
 
-      <div className="card p-6 space-y-4">
+      <div className="card p-4 space-y-4 sm:p-6">
         <h3 className="font-semibold text-gray-800">Datos de Contacto</h3>
         <Input label="Dirección" {...register("direccion")} />
         <Input label="Teléfono" {...register("telefono")} />
@@ -97,7 +97,7 @@ export default function InfoForm({ config }: InfoFormProps) {
       </div>
 
       <div className="flex gap-3">
-        <Button type="submit" cargando={isSubmitting} disabled={!isDirty} tamano="lg">
+        <Button type="submit" cargando={isSubmitting} disabled={!isDirty} tamano="lg" className="w-full sm:w-auto">
           Guardar cambios
         </Button>
       </div>

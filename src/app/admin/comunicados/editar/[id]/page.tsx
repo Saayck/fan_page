@@ -17,7 +17,7 @@ export default async function EditarComunicadoPage({ params }: Props) {
   return (
     <AdminLayout>
       <AdminHeader titulo="Editar comunicado" descripcion={comunicado.titulo} />
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         <ComunicadoForm comunicado={comunicado} />
       </div>
     </AdminLayout>

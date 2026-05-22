@@ -9,7 +9,7 @@ export default async function AdminGaleriaPage() {
   return (
     <AdminLayout>
       <AdminHeader titulo="Galería" descripcion="Gestiona las imágenes de la galería" />
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         <GaleriaManager galeriaInicial={galeria} />
       </div>
     </AdminLayout>

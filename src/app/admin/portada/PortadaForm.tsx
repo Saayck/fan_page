@@ -57,7 +57,7 @@ export default function PortadaForm({ config }: PortadaFormProps) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 max-w-3xl">
-      <div className="card p-6 space-y-4">
+      <div className="card p-4 space-y-4 sm:p-6">
         <h3 className="font-semibold text-gray-800">Texto del Hero</h3>
         <Input
           label="Título principal *"
@@ -85,7 +85,7 @@ export default function PortadaForm({ config }: PortadaFormProps) {
         </div>
       </div>
 
-      <div className="card p-6 space-y-6">
+      <div className="card p-4 space-y-6 sm:p-6">
         <h3 className="font-semibold text-gray-800">Imágenes</h3>
         <ImageUploader
           label="Imagen de portada (fondo del hero)"
@@ -102,7 +102,7 @@ export default function PortadaForm({ config }: PortadaFormProps) {
       </div>
 
       <div className="flex gap-3">
-        <Button type="submit" cargando={isSubmitting} tamano="lg">
+        <Button type="submit" cargando={isSubmitting} tamano="lg" className="w-full sm:w-auto">
           Guardar portada
         </Button>
       </div>
