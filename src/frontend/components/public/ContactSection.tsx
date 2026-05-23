@@ -29,6 +29,7 @@ export default function ContactSection({ config }: ContactSectionProps) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setEnviando(true);
@@ -153,7 +154,7 @@ export default function ContactSection({ config }: ContactSectionProps) {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4" autoComplete="off">
                 <h3 className="text-lg font-semibold text-institucional-azul mb-4">
                   Envíanos un mensaje
                 </h3>
@@ -165,22 +166,22 @@ export default function ContactSection({ config }: ContactSectionProps) {
                 )}
 
                 <Input
-                  label="Nombre completo"
-                  name="nombre"
-                  placeholder="Tu nombre"
-                  value={form.nombre}
-                  onChange={handleChange}
-                  autoComplete="name"
-                  required
-                />
-                <Input
                   label="Correo electrónico"
                   name="correo"
                   type="email"
                   placeholder="tu@correo.com"
                   value={form.correo}
                   onChange={handleChange}
-                  autoComplete="email"
+                  autoComplete="off"
+                  required
+                />
+                <Input
+                  label="Nombre completo"
+                  name="nombre"
+                  placeholder="Tu nombre completo"
+                  value={form.nombre}
+                  onChange={handleChange}
+                  autoComplete="off"
                   required
                 />
                 <Input

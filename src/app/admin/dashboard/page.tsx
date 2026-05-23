@@ -29,11 +29,19 @@ export default async function DashboardPage() {
       icono: "🖼️",
       href: "/admin/galeria",
     },
+    {
+      label: "Autoridades",
+      valor: conteos.autoridades,
+      color: "bg-green-50 text-green-700",
+      icono: "👥",
+      href: "/admin/autoridades",
+    },
   ];
 
   const accesosRapidos = [
     { href: "/admin/comunicados/nuevo", label: "Nuevo comunicado", icono: "✏️" },
     { href: "/admin/galeria", label: "Subir imagen", icono: "📷" },
+    { href: "/admin/autoridades/nuevo", label: "Nueva autoridad", icono: "👤" },
     { href: "/admin/informacion", label: "Editar información", icono: "ℹ️" },
     { href: "/admin/portada", label: "Editar portada", icono: "🖥️" },
   ];
@@ -42,7 +50,7 @@ export default async function DashboardPage() {
     <AdminLayout>
       <AdminHeader titulo="Dashboard" descripcion="Panel de control general" />
       <div className="p-4 space-y-8 sm:p-6">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:max-w-md">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:max-w-lg">
           {stats.map((s) => (
             <Link key={s.href} href={s.href}>
               <Card className={`hover:shadow-md transition-shadow cursor-pointer ${s.color}`}>
@@ -56,7 +64,7 @@ export default async function DashboardPage() {
 
         <div>
           <h2 className="text-lg font-semibold text-gray-800 mb-4">Accesos rápidos</h2>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
             {accesosRapidos.map((a) => (
               <Link key={a.href} href={a.href}>
                 <div className="card p-4 hover:shadow-md transition-shadow cursor-pointer text-center group">

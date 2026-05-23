@@ -109,6 +109,51 @@ Para hacer uso de estos beneficios, acercase a nuestras oficinas con su carné d
   now() - interval '14 days'
 );
 
+-- Autoridades del Consejo Directivo
+INSERT INTO autoridades (nombre, cargo, descripcion, orden, activo) VALUES
+(
+  'Mg. Rosa María Huamán Quispe',
+  'Decana Regional',
+  'Maestra con más de 25 años de experiencia en el magisterio iqueño. Licenciada en Educación por la Universidad Nacional San Luis Gonzaga de Ica y Magíster en Gestión Educativa. Comprometida con la defensa de los derechos docentes y la mejora de la calidad educativa en la región.',
+  1,
+  true
+),
+(
+  'Prof. Carlos Alberto Mendoza Torres',
+  'Vice Decano',
+  'Docente de Educación Secundaria con especialidad en Matemáticas. Cuenta con 18 años de experiencia en el sector educativo y ha participado activamente en la formulación de políticas educativas regionales.',
+  2,
+  true
+),
+(
+  'Lic. María Elena Palomino Rojas',
+  'Secretaria General',
+  'Profesora de Educación Primaria con amplia trayectoria en la gestión gremial. Responsable de la administración y coordinación de las actividades institucionales del Colegio de Profesores de Ica.',
+  3,
+  true
+),
+(
+  'Prof. Jorge Luis Huamaní Ccoya',
+  'Tesorero',
+  'Docente de Educación Técnica especializado en administración de recursos. Encargado de la gestión financiera transparente de la institución en beneficio de todos los colegiados.',
+  4,
+  true
+),
+(
+  'Lic. Ana Lucía Flores Cárdenas',
+  'Directora de Defensa Profesional',
+  'Abogada y docente especialista en derecho laboral educativo. Brinda asesoría legal y defiende los derechos e intereses profesionales de los maestros colegiados de la región Ica.',
+  5,
+  true
+),
+(
+  'Prof. Roberto Sánchez Vilca',
+  'Director de Bienestar Social',
+  'Profesor con vocación de servicio y amplia experiencia en programas de bienestar para docentes. Gestiona los convenios y beneficios sociales en favor de los colegiados y sus familias.',
+  6,
+  true
+);
+
 -- Imágenes de galería de ejemplo
 INSERT INTO galeria (titulo, descripcion, imagen_url, destacado) VALUES
 (

@@ -1,6 +1,7 @@
 import { getConfiguracion } from "@/backend/lib/supabase/queries";
 import Navbar from "@/frontend/components/public/Navbar";
 import Footer from "@/frontend/components/public/Footer";
+import Link from "next/link";
 
 export const revalidate = 60;
 
@@ -15,7 +16,7 @@ export default async function NosotrosPage() {
           <div className="max-w-4xl mx-auto px-4">
             <h1 className="text-4xl font-bold mb-4">Nosotros</h1>
             <p className="text-blue-100 text-lg">
-              Conoce nuestra historia, misión y valores institucionales
+              Conoce nuestra historia, misión, visión y valores
             </p>
           </div>
         </section>
@@ -25,7 +26,7 @@ export default async function NosotrosPage() {
             {config?.historia && (
               <div>
                 <h2 className="text-2xl font-bold text-institucional-azul mb-4 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-institucional-dorado rounded-lg flex items-center justify-center text-white text-sm">H</span>
+                  <span className="w-8 h-8 bg-institucional-dorado rounded-lg flex items-center justify-center text-white text-sm font-bold">H</span>
                   Historia
                 </h2>
                 <p className="text-gray-600 leading-relaxed whitespace-pre-line">{config.historia}</p>
@@ -53,11 +54,17 @@ export default async function NosotrosPage() {
               )}
             </div>
 
-            {!config?.mision && !config?.vision && !config?.historia && (
-              <div className="text-center py-16">
-                <p className="text-gray-400 text-lg">Información institucional próximamente disponible.</p>
-              </div>
-            )}
+            <div className="text-center pt-4">
+              <Link
+                href="/autoridades"
+                className="inline-flex items-center gap-2 bg-institucional-azul text-white px-6 py-3 rounded-xl font-medium hover:bg-institucional-azul-oscuro transition-colors"
+              >
+                Conoce a nuestras Autoridades
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </section>
       </main>

@@ -9,6 +9,7 @@ import { clsx } from "@/backend/lib/utils";
 const enlaces = [
   { href: "/", label: "Inicio" },
   { href: "/nosotros", label: "Nosotros" },
+  { href: "/autoridades", label: "Autoridades" },
   { href: "/comunicados", label: "Comunicados" },
   { href: "/galeria", label: "Galería" },
   { href: "/contacto", label: "Contacto" },

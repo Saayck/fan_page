@@ -155,6 +155,57 @@ CREATE POLICY "Admin actualiza configuración"
   USING (true);
 
 -- ============================================================
+-- Tabla: autoridades (Decana y Consejo Directivo)
+-- ============================================================
+
+CREATE TABLE IF NOT EXISTS autoridades (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  nombre text NOT NULL,
+  cargo text NOT NULL,
+  descripcion text,
+  foto_url text,
+  orden int DEFAULT 0,
+  activo boolean DEFAULT true,
+  created_at timestamptz DEFAULT now(),
+  updated_at timestamptz DEFAULT now()
+);
+
+CREATE TRIGGER update_autoridades_updated_at
+  BEFORE UPDATE ON autoridades
+  FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+ALTER TABLE autoridades ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Lectura pública de autoridades activas"
+  ON autoridades FOR SELECT
+  USING (activo = true);
+
+CREATE POLICY "Admin lee todas las autoridades"
+  ON autoridades FOR SELECT
+  TO authenticated
+  USING (true);
+
+CREATE POLICY "Admin inserta autoridades"
+  ON autoridades FOR INSERT
+  TO authenticated
+  WITH CHECK (true);
+
+CREATE POLICY "Admin actualiza autoridades"
+  ON autoridades FOR UPDATE
+  TO authenticated
+  USING (true);
+
+CREATE POLICY "Admin elimina autoridades"
+  ON autoridades FOR DELETE
+  TO authenticated
+  USING (true);
+
+-- Grants de acceso para la tabla autoridades
+GRANT SELECT ON TABLE public.autoridades TO anon;
+GRANT ALL ON TABLE public.autoridades TO authenticated;
+GRANT ALL ON TABLE public.autoridades TO service_role;
+
+-- ============================================================
 -- STORAGE BUCKET: web-images
 -- Crear manualmente en Supabase Storage o con la siguiente
 -- instrucción si usas el CLI de Supabase:

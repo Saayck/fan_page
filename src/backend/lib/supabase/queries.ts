@@ -1,5 +1,5 @@
 import { createClient } from "./server";
-import type { Comunicado, GaleriaItem, ConfiguracionWeb } from "@/backend/types/database";
+import type { Comunicado, GaleriaItem, ConfiguracionWeb, Autoridad } from "@/backend/types/database";
 
 export async function getConfiguracion(): Promise<ConfiguracionWeb | null> {
   const supabase = await createClient();
@@ -71,11 +71,44 @@ export async function getGaleriaDestacada(limite?: number): Promise<GaleriaItem[
   return (data as GaleriaItem[]) ?? [];
 }
 
-export async function getConteos(): Promise<{ comunicados: number; galeria: number }> {
+export async function getAutoridades(): Promise<Autoridad[]> {
   const supabase = await createClient();
-  const [{ count: totalComunicados }, { count: totalGaleria }] = await Promise.all([
+  const { data, error } = await supabase
+    .from("autoridades")
+    .select("*")
+    .eq("activo", true)
+    .order("orden", { ascending: true });
+  if (error) console.error("[getAutoridades]", "code:", error.code, "message:", error.message, "details:", error.details);
+  return (data as Autoridad[]) ?? [];
+}
+
+export async function getAutoridadesAdmin(): Promise<Autoridad[]> {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("autoridades")
+    .select("*")
+    .order("orden", { ascending: true });
+  if (error) console.error("[getAutoridadesAdmin]", "code:", error.code, "message:", error.message, "details:", error.details);
+  return (data as Autoridad[]) ?? [];
+}
+
+export async function getAutoridadPorId(id: string): Promise<Autoridad | null> {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("autoridades")
+    .select("*")
+    .eq("id", id)
+    .single();
+  if (error) console.error("[getAutoridadPorId]", "code:", error.code, "message:", error.message);
+  return (data as Autoridad) ?? null;
+}
+
+export async function getConteos(): Promise<{ comunicados: number; galeria: number; autoridades: number }> {
+  const supabase = await createClient();
+  const [{ count: totalComunicados }, { count: totalGaleria }, { count: totalAutoridades }] = await Promise.all([
     supabase.from("comunicados").select("*", { count: "exact", head: true }),
     supabase.from("galeria").select("*", { count: "exact", head: true }),
+    supabase.from("autoridades").select("*", { count: "exact", head: true }),
   ]);
-  return { comunicados: totalComunicados ?? 0, galeria: totalGaleria ?? 0 };
+  return { comunicados: totalComunicados ?? 0, galeria: totalGaleria ?? 0, autoridades: totalAutoridades ?? 0 };
 }
