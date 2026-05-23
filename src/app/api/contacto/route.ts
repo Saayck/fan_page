@@ -18,10 +18,10 @@ export async function POST(req: NextRequest) {
 
   try {
     await transporter.sendMail({
-      from: `"${nombre}" <${process.env.GMAIL_USER}>`,
+      from: `"Formulario Web - Colegio de Profesores de Ica" <${process.env.GMAIL_USER}>`,
       to: process.env.CONTACT_EMAIL_TO,
-      replyTo: correo,
-      subject: `[Contacto Web] ${asunto}`,
+      replyTo: `"${nombre}" <${correo}>`,
+      subject: `[Contacto Web] ${nombre} — ${asunto}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #1e40af; border-bottom: 2px solid #1e40af; padding-bottom: 8px;">
